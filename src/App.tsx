@@ -3,14 +3,16 @@ import { MainLayout } from "./layouts/MainLayout/MainLayout.tsx"
 import { HomePage } from "./pages/HomePage/HomePage.tsx"
 import { CountryList } from "./components/modules/CountryList/CountryList.tsx"
 import { CountryDetails } from "./components/modules/CountryDetails/CountryDetails.tsx"
+import { AttractionList } from "./components/modules/AttractionList/AttractionList.tsx"
 
 export const App = () => {
    return (
     <Routes>
       <Route element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="/countries" element={<CountryList />} />
+        <Route path="/countries" element={<CountryList mode="popular" />} />
         <Route path="/countries/:id" element={<CountryDetails />} />
+        <Route path="/attractions" element={<AttractionList />} />
       </Route>
     </Routes>
    )
