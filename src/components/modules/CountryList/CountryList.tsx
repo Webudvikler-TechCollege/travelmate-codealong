@@ -2,6 +2,8 @@ import { Link } from "react-router-dom"
 import { SERVER_URL } from "../../../config/api"
 import { useCountries } from "../../../hooks/useCountries"
 import { useLanguage } from "../../../context/LanguageContext"
+import { Card } from "../../elements/Card/Card"
+import { ListStyled } from "../../../styled/elements"
 
 export const CountryList = ({ mode = 'all' }: { mode: string }) => {
     const { countries, isLoading, error } = useCountries()
@@ -19,7 +21,7 @@ export const CountryList = ({ mode = 'all' }: { mode: string }) => {
     }
 
     return (
-        <ul>
+        <ListStyled>
             {finalList.map(country => {
                 const info = country.infos.find(
                     info => info.language.code === language
@@ -28,19 +30,15 @@ export const CountryList = ({ mode = 'all' }: { mode: string }) => {
                 if (!info) return null
 
                 return (
-                    <li key={country.id}>
-                        <Link to={`/countries/${country.id}`}>
-                            <img
-                                src={new URL(country.image, SERVER_URL).href}
-                                alt={info.name}
-                                width={300}
-                            />
-                            <h2>{info.name}</h2>
-                            <p>{info.description}</p>
-                        </Link>
-                    </li>
+                    <Link to={`/countries/${country.id}`}>
+                        <Card 
+                            key={country.id} image={new URL(country.image, SERVER_URL).href} 
+                            title={info.name}
+                            subtitle={info.description}
+                        />
+                    </Link>
                 )
             })}
-        </ul>
+        </ListStyled>
     )
 }
