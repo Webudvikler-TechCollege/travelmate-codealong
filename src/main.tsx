@@ -6,15 +6,18 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from './styled/Theme.ts'
 import { GlobalStyle } from './styled/Global.ts'
 import { LanguageProvider } from './context/LanguageContext.tsx'
+import { DarkModeProvider } from './context/DarkModeContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <LanguageProvider>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <App />
-        </ThemeProvider>
+        <DarkModeProvider>
+          <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <App />
+          </ThemeProvider>
+        </DarkModeProvider>
       </LanguageProvider>
     </BrowserRouter>
   </StrictMode>,

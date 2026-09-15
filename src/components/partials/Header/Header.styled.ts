@@ -103,3 +103,8 @@ export const HeaderButton = styled.button`
 
   cursor: pointer;
 `;
+
+export const DarkButton = styled(HeaderButton)`
+  background: #0f2d4f;
+  color: #ffffff;
+`;
