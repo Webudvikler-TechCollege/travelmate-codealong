@@ -7,14 +7,14 @@ export const Nav = () => {
       <NavLink to="/">
         Home
       </NavLink>
+      <NavLink to="/attractions">
+        Attractions
+      </NavLink>
       <NavLink to="/countries">
         Countries
       </NavLink>
       <NavLink to="/cities">
-        Citites
-      </NavLink>
-      <NavLink to="/attractions">
-        Attractions
+        Cities
       </NavLink>
       <NavLink to="/about">
         About

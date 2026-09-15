@@ -93,15 +93,6 @@ export const HeaderButton = styled.button`
     outline-offset: 3px;
   }
 
-  body.dark-mode & {
-    background: ${({ theme }) => theme.colors.dark.control};
-    color: ${({ theme }) => theme.colors.dark.text};
-
-    &[aria-pressed="true"] {
-      outline-color: ${({ theme }) => theme.colors.dark.accent};
-    }
-  }
-
   border: none;
   border-radius: 999px;
 
@@ -111,9 +102,4 @@ export const HeaderButton = styled.button`
   color: #0f2d4f;
 
   cursor: pointer;
-`;
-
-export const DarkButton = styled(HeaderButton)`
-  background: #0f2d4f;
-  color: #ffffff;
 `;

@@ -5,7 +5,7 @@ import { useLanguage } from "../../../context/LanguageContext"
 import { Card } from "../../elements/Card/Card"
 import { ListStyled } from "../../../styled/elements"
 
-export const CountryList = ({ mode = 'all' }: { mode: string }) => {
+export const CountryList = ({ mode = 'all' }: { mode?: "all" | "popular" }) => {
     const { countries, isLoading, error } = useCountries()
     const { language } = useLanguage()
 
