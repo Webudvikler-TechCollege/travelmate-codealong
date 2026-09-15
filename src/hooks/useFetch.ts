@@ -10,6 +10,7 @@ export const useFetch = <T>(
 
     const [ data, setData ] = useState<T | null>(null)
     const [ error, setError ] = useState<string | null>(null)
+    const [ isLoading, setIsLoading ] = useState<boolean>(true)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,10 +25,13 @@ export const useFetch = <T>(
                     }
                 })
 
-
                 const result = await response.json()
                 
                 setData(result)
+
+                setTimeout(() => {
+                    setIsLoading(false)
+                }, 1000)
 
             } catch (error) {
                 if(error instanceof Error) {
@@ -39,5 +43,5 @@ export const useFetch = <T>(
         fetchData()
     }, [url, method, token])
 
-    return { data, error }
+    return { data, error, isLoading }
 }

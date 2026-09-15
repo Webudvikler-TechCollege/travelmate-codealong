@@ -5,14 +5,17 @@ import { App } from './App.tsx'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './styled/Theme.ts'
 import { GlobalStyle } from './styled/Global.ts'
+import { LanguageProvider } from './context/LanguageContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <App />
-      </ThemeProvider>
+      <LanguageProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <App />
+        </ThemeProvider>
+      </LanguageProvider>
     </BrowserRouter>
   </StrictMode>,
 )

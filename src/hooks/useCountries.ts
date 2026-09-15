@@ -3,19 +3,21 @@ import type { Country } from "../types/api.types"
 import { useFetch } from "./useFetch"
 
 export const useCountries = () => {
-    const { data, error } = useFetch<Country[]>(`${API_URL}/countries`)
+    const { data, error, isLoading } = useFetch<Country[]>(`${API_URL}/countries`)
 
     return {
         countries: data ?? [],
+        isLoading,
         error
     }
 }
 
 export const useCountry = (id: string) => {
-    const { data, error } = useFetch<Country>(`${API_URL}/countries/${id}`)
+    const { data, error, isLoading } = useFetch<Country>(`${API_URL}/countries/${id}`)
 
     return {
         country: data,
+        isLoading,
         error
     }
 }
