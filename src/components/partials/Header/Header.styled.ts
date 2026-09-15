@@ -56,12 +56,9 @@ export const Nav = styled.nav`
 
   a {
     padding: 10px 16px;
-
     border-radius: 10px;
-
     color: #0f2d4f;
     text-decoration: none;
-
     font-size: 0.95rem;
   }
 
@@ -92,15 +89,11 @@ export const HeaderButton = styled.button`
     outline: 2px solid #0867e8;
     outline-offset: 3px;
   }
-
   border: none;
   border-radius: 999px;
-
   padding: 10px 16px;
-
   background: #eef5fc;
   color: #0f2d4f;
-
   cursor: pointer;
 `;
 

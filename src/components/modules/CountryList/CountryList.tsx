@@ -30,10 +30,11 @@ export const CountryList = ({ mode = 'all' }: { mode?: "all" | "popular" }) => {
                 if (!info) return null
 
                 return (
-                    <Link to={`/countries/${country.id}`}>
+                    <Link to={`/countries/${country.id}`} key={country.id} >
                         <Card 
-                            key={country.id} image={new URL(country.image, SERVER_URL).href} 
+                            image={new URL(country.image, SERVER_URL).href} 
                             title={info.name}
+                            code={country.code}
                             subtitle={info.description}
                         />
                     </Link>

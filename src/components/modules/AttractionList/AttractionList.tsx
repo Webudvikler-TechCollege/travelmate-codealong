@@ -23,9 +23,9 @@ export const AttractionList = () => {
                 if (!info) return null
 
                 return (
-                    <Link to={`/attractions/${attraction.id}`}>
-                        <Card 
-                            key={attraction.id} image={new URL(attraction.image, SERVER_URL).href} 
+                    <Link key={attraction.id} to={`/attractions/${attraction.id}`}>
+                        <Card
+                            image={new URL(attraction.image, SERVER_URL).href} 
                             title={info.name}
                             subtitle={info.description}
                         />

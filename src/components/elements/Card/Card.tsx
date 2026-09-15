@@ -1,8 +1,8 @@
 import { truncateText } from "../../../utils/txtUtils"
-import { CardContent, CardImage, CardStyled, CardSubtitle, CardTitle } from "./Card.styled"
+import { CardContent, CardIcon, CardImage, CardStyled, CardSubtitle, CardTitle } from "./Card.styled"
 import type { CardProps } from "./Card.types"
 
-export const Card = ({ image, title, subtitle }: CardProps) => {
+export const Card = ({ image, title, subtitle, code }: CardProps) => {
   return (
     <CardStyled>
 
@@ -17,8 +17,15 @@ export const Card = ({ image, title, subtitle }: CardProps) => {
           {title}
         </CardTitle>
 
+        {code && (
+          <CardIcon
+            src={`https://flagcdn.com/${code.toLowerCase()}.svg`}
+            alt={`Flag for ${code}`}
+          />
+        )}
+
         <CardSubtitle>
-          {truncateText(subtitle,100)}
+          {truncateText(subtitle, 100)}
         </CardSubtitle>
 
       </CardContent>

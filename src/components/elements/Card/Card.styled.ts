@@ -35,6 +35,11 @@ export const CardImage = styled.img`
   object-fit: cover;
 `;
 
+export const CardIcon = styled.img`
+  width: ${(props => props.width ? props.width : `24`)}px;
+  height: ${(props => props.height ? props.height : `15`)}px;
+`
+
 export const CardContent = styled.div`
   flex: 1;
   overflow-wrap: anywhere;
