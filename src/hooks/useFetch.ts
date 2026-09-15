@@ -31,7 +31,7 @@ export const useFetch = <T>(
 
                 setTimeout(() => {
                     setIsLoading(false)
-                }, 1000)
+                }, 200)
 
             } catch (error) {
                 if(error instanceof Error) {

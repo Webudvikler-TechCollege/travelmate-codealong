@@ -23,3 +23,25 @@ export const ListStyled = styled.ul`
         text-decoration: none;
     }
 `
+
+export const DetailsStyled = styled.div`
+`
+
+export const DetailsGrid = styled.div`
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 32px;
+    margin-top: 24px;
+`
+
+export const DetailImage = styled.img`
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+`
+
+export const InfoBox = styled.div`
+
+`
+

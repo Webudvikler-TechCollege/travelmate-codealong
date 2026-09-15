@@ -1,20 +1,20 @@
 import { useParams } from "react-router-dom"
-import { useCountry } from "../../../hooks/useCountries"
 import { SERVER_URL } from "../../../config/api"
+import { useAttraction } from "../../../hooks/useAttractions"
 import { DetailImage, DetailsGrid, DetailsStyled, InfoBox } from "../../../styled/elements"
 import { useLanguage } from "../../../context/LanguageContext"
 
-export const CountryDetails = () => {
+export const AttrationDetails = () => {
     const { id } = useParams()
-    const { country, error } = useCountry(id!)
+    const { attraction, error } = useAttraction(id!)
     const { language } = useLanguage()
 
     // Håndter fejl og vent på data.
     if (error) return <p role="alert">{error}</p>
-    if (!country) return <p>Henter land...</p>
+    if (!attraction) return <p>Henter seværdighed...</p>
 
     // Find den danske beskrivelse.
-    const info = country.infos.find(info => info.language.code === language)
+    const info = attraction.infos.find(info => info.language.code === language)
 
     if (!info) return <p>Ingen dansk beskrivelse fundet.</p>
 
@@ -24,12 +24,13 @@ export const CountryDetails = () => {
 
             <DetailsGrid>
                 <DetailImage
-                    src={new URL(country.image, SERVER_URL).href}
+                    src={new URL(attraction.image, SERVER_URL).href}
                     alt={info.name}
+                    style={{ width: "100%", maxWidth: 600, borderRadius: 12 }}
                 />
+
                 <InfoBox>
                     <p>{info.description}</p>
-                    <p>Landekode: {country.code}</p>
                 </InfoBox>
             </DetailsGrid>
         </DetailsStyled>
